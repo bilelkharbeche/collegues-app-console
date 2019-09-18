@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "url": "https://github.com/bilelkharbeche/collegues-app-console/issues"
   },
   "homepage": "https://github.com/bilelkharbeche/collegues-app-console#readme",
-  "scripts" : {
-    "start" : "node index.js"
+  "dependencies": {
+    "request": "^2.88.0"
   }
 }
