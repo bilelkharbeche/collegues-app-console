@@ -17,20 +17,28 @@ const start = () => {
 
             service.auth(saisieMail, saisieMdp)
                 .then(() => {
-                    console.log('Vous êtes bien connecté');
+                    console.log('Vous êtes bien connecté \n');
 
                     const menuFonction = () => {
-                        const menu = '1. Rechercher un collègue par nom \n2. Créer un collègue \n99. Sortir \n';
+                        const menu =
+`***Veuillez choisir une action***
+
+1. Rechercher un collègue par nom
+2. Créer un collègue
+99. Sortir \n`;
                         // récupération de la saisie utilisateur
                         rl.question(menu, (saisie) => {
-
                             if (saisie === '1') {
                                 rl.question('Veuillez saisir un nom :\n', (saisieNom) => {
-
                                     service.findColl(saisieNom)
                                         .then((tabColl) => {
-                                            tabColl.forEach(coll => console.log(`${coll.nom} ${coll.prenoms} (${coll.dateDeNaissance})`));
-                                            menuFonction();
+                                            if (tabColl == 0) {
+                                                console.log('Aucun collègue ne possède ce nom');
+                                                menuFonction();
+                                            } else {
+                                                tabColl.forEach(coll => console.log(`${coll.nom} ${coll.prenoms} (${coll.dateDeNaissance})`));
+                                                menuFonction();
+                                            }
                                         });
                                 });
                             }

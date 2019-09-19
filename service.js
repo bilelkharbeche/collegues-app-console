@@ -22,14 +22,14 @@ class Service {
             });
     }
     
-        findColl(nom) {
-            return request(`http://localhost:8080/collegues?nom=${nom}`, { json: true })
-                .then(tabMatricules => {
-                    return Promise.all(tabMatricules
-                        .map(matricule => `http://localhost:8080/collegues/${matricule}`)
-                        .map(url => request(url, { json: true })));
-                });
-        }
+    findColl(nom) {
+        return request(`http://localhost:8080/collegues?nom=${nom}`, { json: true })
+            .then(tabMatricules => {
+                return Promise.all(tabMatricules
+                    .map(matricule => `http://localhost:8080/collegues/${matricule}`)
+                    .map(url => request(url, { json: true })));
+            });
     }
+}
 
 module.exports = { Service }
