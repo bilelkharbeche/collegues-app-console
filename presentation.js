@@ -17,15 +17,15 @@ const start = () => {
 
             service.auth(saisieMail, saisieMdp)
                 .then(() => {
-                    console.log('Vous êtes bien connecté \n');
+                    console.log('Vous êtes bien connecté');
 
                     const menuFonction = () => {
                         const menu =
-`***Veuillez choisir une action***
+`\n***Veuillez choisir une action***
 
 1. Rechercher un collègue par nom
 2. Créer un collègue
-99. Sortir \n`;
+99. Sortir\n`;
                         // récupération de la saisie utilisateur
                         rl.question(menu, (saisie) => {
                             if (saisie === '1') {
