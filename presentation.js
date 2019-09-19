@@ -21,7 +21,7 @@ const start = () => {
 
                     const menuFonction = () => {
                         const menu =
-`\n***Veuillez choisir une action***
+                            `\n***Veuillez choisir une action***
 
 1. Rechercher un collègue par nom
 2. Créer un collègue
@@ -29,7 +29,7 @@ const start = () => {
                         // récupération de la saisie utilisateur
                         rl.question(menu, (saisie) => {
                             if (saisie === '1') {
-                                rl.question('Veuillez saisir un nom :\n', (saisieNom) => {
+                                rl.question('Veuillez saisir un nom :', (saisieNom) => {
                                     service.findColl(saisieNom)
                                         .then((tabColl) => {
                                             if (tabColl == 0) {
@@ -41,8 +41,7 @@ const start = () => {
                                             }
                                         });
                                 });
-                            }
-                            if (saisie === '2') {
+                            } else if (saisie === '2') {
                                 rl.question('Nom : \n', (nom) => {
                                     rl.question('Prenoms : \n', (prenoms) => {
                                         rl.question('Email : \n', (email) => {
@@ -63,10 +62,14 @@ const start = () => {
                                         });
                                     });
                                 });
-                            }
-                            if (saisie === '99') {
+                            } else if (saisie === '99') {
                                 console.log('A+');
                                 rl.close();// attention, une fois l'interface fermée, la saisie n'est plus possible
+                            }
+
+                            else {
+                                console.log('\nAucune commande ne correspond à celle entrée');
+                                menuFonction();
                             }
 
                         });
