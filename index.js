@@ -1,5 +1,6 @@
 console.log('** Administration Collegues **\n');
 
-var presentation = require('./presentation.js');
+const { Presentation } = require('./presentation.js');
+const presentation = new Presentation();
 
 presentation.start();
